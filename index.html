@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo da Velha</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+
+<body>
+    <div class="container bg-light text-center">
+        <div class="m-3 p-2">
+            <h1>JOGO DA VELHA</h1>
+        </div>
+    </div>
+    <div class="container">
+        <div onclick="reiniciar()" class="btn btn-warning btn-block">Reiniciar</div>
+    </div>
+    <div class="mt-3 border container">
+        <div class="row">
+            <div id="p1" class="text-center P1 py-5 col-12 col-md-3">
+                <div class="btn btn-lg">Player 1</div>
+                <hr>
+                <div class="btn my-5 btn-lg"><h1>X</h1></div>
+                <hr>
+            </div>
+            <div style="height: 600px;" class="bg-light col-12 col-md-6">
+                <div class="row">
+                    <div onclick="jogada(this.id)" style="height: 200px;" id="1"
+                        class="col-4 text-center letra"></div>
+                    <div onclick="jogada(this.id)" style="height: 200px;" id="2"
+                        class="border-left border-right col-4 text-center letra"></div>
+                    <div onclick="jogada(this.id)" style="height: 200px;" id="3" 
+                        class="col-4 text-center letra"></div>
+                </div>
+                <div class="row">
+                    <div onclick="jogada(this.id)" style="height: 200px;" id="4"
+                        class="border-top col-4 text-center letra"></div>
+                    <div onclick="jogada(this.id)" style="height: 200px;" id="5" 
+                    class="col-4 text-center border letra"></div>
+                    <div onclick="jogada(this.id)" style="height: 200px;" id="6"
+                        class="border-top col-4 text-center letra"></div>
+                </div>
+                <div class="row">
+                    <div onclick="jogada(this.id)" style="height: 200px;" id="7"
+                        class="border-top col-4 text-center letra"></div>
+                    <div onclick="jogada(this.id)" style="height: 200px;" id="8"
+                        class="border-left border-right col-4 text-center letra"></div>
+                    <div onclick="jogada(this.id)" style="height: 200px;" id="9"
+                        class="border-top col-4 text-center letra"></div>
+                </div>
+            </div>
+            <div id="p2" class="text-center P2 vez py-5 col-12 col-md-3">
+                <div class="btn btn-lg"> Player 2 </div>
+                <hr>
+                <div class="btn my-5 btn-lg"><h1>O</h1></div>
+              <hr>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    
+    vez = 'x'
+    
+    $('#p1').removeClass('vez')
+    
+    acabou = false
+
+    function jogada(id) {
+
+
+        if (vez == 'x' && acabou == false && $('#' + id).html() == '') {
+         
+            $('#p2').removeClass('vez')
+            acabou == false
+            $('#p1').addClass('vez')
+            $('#' + id).html('x')
+            verificarvez(vez);
+            vez = 'o'
+        }
+        if (vez == 'o' && acabou == false && $('#' + id).html() == '') {
+            $('#p2').addClass('vez')
+            $('#p1').removeClass('vez')
+            $('#' + id).html('o')
+            verificarvez(vez);
+            vez = 'x'
+        }
+
+        verificarvez()
+        acabou = false
+        if ($('#1').html() != '' && $('#2').html() != '' && $('#3').html() != '' && $('#4').html() != '' && $('#5').html() != '' && $('#6').html() != '' && $('#7').html() != '' && $('#8').html() != '' && $('#9').html() != '') {
+            alert('Empate')
+            reiniciar(vez)
+        }
+    }
+    function verificarvez(vez) {
+        if ($('#1').html() == vez && $('#2').html() == vez && $('#3').html() == vez) {
+            alert('Fim de Jogo : ' + vez.toUpperCase() + ' venceu')
+            acabou = true
+            reiniciar(vez)
+        }
+        if ($('#4').html() == vez && $('#5').html() == vez && $('#6').html() == vez) {
+            alert('Fim de Jogo : ' + vez.toUpperCase() + ' venceu')
+            acabou = true
+            reiniciar(vez)
+        }
+        if ($('#7').html() == vez && $('#8').html() == vez && $('#9').html() == vez) {
+            alert('Fim de Jogo : ' + vez.toUpperCase() + ' venceu')
+            acabou = true
+            reiniciar(vez)
+        }
+        if ($('#1').html() == vez && $('#4').html() == vez && $('#7').html() == vez) {
+            alert('Fim de Jogo : ' + vez.toUpperCase() + ' venceu')
+            acabou = true
+            reiniciar(vez)
+        }
+        if ($('#2').html() == vez && $('#5').html() == vez && $('#8').html() == vez) {
+            alert('Fim de Jogo : ' + vez.toUpperCase() + ' venceu')
+            acabou = true
+            reiniciar(vez)
+        }
+        if ($('#3').html() == vez && $('#6').html() == vez && $('#9').html() == vez) {
+            alert('Fim de Jogo : ' + vez.toUpperCase() + ' venceu')
+            acabou = true
+            reiniciar(vez)
+        }
+        if ($('#1').html() == vez && $('#5').html() == vez && $('#9').html() == vez) {
+            alert('Fim de Jogo : ' + vez.toUpperCase() + ' venceu')
+            acabou = true
+            reiniciar(vez)
+        }
+        if ($('#3').html() == vez && $('#5').html() == vez && $('#7').html() == vez) {
+            alert('Fim de Jogo : ' + vez.toUpperCase() + ' venceu')
+            acabou = true
+            reiniciar(vez)
+        }
+    }
+    function reiniciar() {
+        $('#1').html('')
+        $('#2').html('')
+        $('#3').html('')
+        $('#4').html('')
+        $('#5').html('')
+        $('#6').html('')
+        $('#7').html('')
+        $('#8').html('')
+        $('#9').html('')
+        alert('Novo Jogo')
+    }
+</script>
+
+</html>
