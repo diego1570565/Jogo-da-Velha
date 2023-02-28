@@ -28,48 +28,120 @@
         verificarvez()
         acabou = false
         if ($('#1').html() != '' && $('#2').html() != '' && $('#3').html() != '' && $('#4').html() != '' && $('#5').html() != '' && $('#6').html() != '' && $('#7').html() != '' && $('#8').html() != '' && $('#9').html() != '') {
-            alert('Empate')
+            Swal.fire({
+                title: 'Empate',
+                showClass: {
+                  popup: 'animate__animated animate__fadeInDown'
+                },
+                hideClass: {
+                  popup: 'animate__animated animate__fadeOutUp'
+                }
+              })
             reiniciar(vez)
         }
     }
     function verificarvez(vez) {
         if ($('#1').html() == vez && $('#2').html() == vez && $('#3').html() == vez) {
-            alert('Fim de Jogo : ' + vez.toUpperCase() + ' venceu')
+            Swal.fire({
+                title: 'Fim de Jogo : ' + vez.toUpperCase() + ' venceu',
+                showClass: {
+                  popup: 'animate__animated animate__fadeInDown'
+                },
+                hideClass: {
+                  popup: 'animate__animated animate__fadeOutUp'
+                }
+              })
             acabou = true
             reiniciar(vez)
         }
         if ($('#4').html() == vez && $('#5').html() == vez && $('#6').html() == vez) {
-            alert('Fim de Jogo : ' + vez.toUpperCase() + ' venceu')
+            Swal.fire({
+                title: 'Fim de Jogo : ' + vez.toUpperCase() + ' venceu',
+                showClass: {
+                  popup: 'animate__animated animate__fadeInDown'
+                },
+                hideClass: {
+                  popup: 'animate__animated animate__fadeOutUp'
+                }
+              })
             acabou = true
             reiniciar(vez)
         }
         if ($('#7').html() == vez && $('#8').html() == vez && $('#9').html() == vez) {
-            alert('Fim de Jogo : ' + vez.toUpperCase() + ' venceu')
+            Swal.fire({
+                title: 'Fim de Jogo : ' + vez.toUpperCase() + ' venceu',
+                showClass: {
+                  popup: 'animate__animated animate__fadeInDown'
+                },
+                hideClass: {
+                  popup: 'animate__animated animate__fadeOutUp'
+                }
+              })
             acabou = true
             reiniciar(vez)
         }
         if ($('#1').html() == vez && $('#4').html() == vez && $('#7').html() == vez) {
-            alert('Fim de Jogo : ' + vez.toUpperCase() + ' venceu')
+            Swal.fire({
+                title: 'Fim de Jogo : ' + vez.toUpperCase() + ' venceu',
+                showClass: {
+                  popup: 'animate__animated animate__fadeInDown'
+                },
+                hideClass: {
+                  popup: 'animate__animated animate__fadeOutUp'
+                }
+              })
             acabou = true
             reiniciar(vez)
         }
         if ($('#2').html() == vez && $('#5').html() == vez && $('#8').html() == vez) {
-            alert('Fim de Jogo : ' + vez.toUpperCase() + ' venceu')
+            Swal.fire({
+                title: 'Fim de Jogo : ' + vez.toUpperCase() + ' venceu',
+                showClass: {
+                  popup: 'animate__animated animate__fadeInDown'
+                },
+                hideClass: {
+                  popup: 'animate__animated animate__fadeOutUp'
+                }
+              })
             acabou = true
             reiniciar(vez)
         }
         if ($('#3').html() == vez && $('#6').html() == vez && $('#9').html() == vez) {
-            alert('Fim de Jogo : ' + vez.toUpperCase() + ' venceu')
+            Swal.fire({
+                title: 'Fim de Jogo : ' + vez.toUpperCase() + ' venceu',
+                showClass: {
+                  popup: 'animate__animated animate__fadeInDown'
+                },
+                hideClass: {
+                  popup: 'animate__animated animate__fadeOutUp'
+                }
+              })
             acabou = true
             reiniciar(vez)
         }
         if ($('#1').html() == vez && $('#5').html() == vez && $('#9').html() == vez) {
-            alert('Fim de Jogo : ' + vez.toUpperCase() + ' venceu')
+            Swal.fire({
+                title: 'Fim de Jogo : ' + vez.toUpperCase() + ' venceu',
+                showClass: {
+                  popup: 'animate__animated animate__fadeInDown'
+                },
+                hideClass: {
+                  popup: 'animate__animated animate__fadeOutUp'
+                }
+              })
             acabou = true
             reiniciar(vez)
         }
         if ($('#3').html() == vez && $('#5').html() == vez && $('#7').html() == vez) {
-            alert('Fim de Jogo : ' + vez.toUpperCase() + ' venceu')
+            Swal.fire({
+                title: 'Fim de Jogo : ' + vez.toUpperCase() + ' venceu',
+                showClass: {
+                  popup: 'animate__animated animate__fadeInDown'
+                },
+                hideClass: {
+                  popup: 'animate__animated animate__fadeOutUp'
+                }
+              })
             acabou = true
             reiniciar(vez)
         }
@@ -84,5 +156,13 @@
         $('#7').html('')
         $('#8').html('')
         $('#9').html('')
-        alert('Novo Jogo')
+        Swal.fire({
+            title: 'Novo Jogo',
+            showClass: {
+              popup: 'animate__animated animate__fadeInDown'
+            },
+            hideClass: {
+              popup: 'animate__animated animate__fadeOutUp'
+            }
+          })
     }
